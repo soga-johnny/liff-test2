@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { LiffProvider } from './components/LiffProvider';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,7 +29,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+          <LiffProvider liffId={process.env.NEXT_PUBLIC_LIFF_ID || ''}>
         {children}
+        </LiffProvider>
       </body>
     </html>
   );
